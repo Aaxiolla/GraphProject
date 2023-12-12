@@ -1,3 +1,5 @@
+package GraphProjectInterface;
+
 import javax.swing.*;
 import java.awt.*;
 

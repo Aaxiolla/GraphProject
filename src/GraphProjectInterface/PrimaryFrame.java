@@ -1,14 +1,13 @@
+package GraphProjectInterface;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class PrimaryFrame extends JFrame {
 
-    JPanel mainPanel;
+    MainPanel mainPanel;
     public PrimaryFrame(){
-        mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout());
-        mainPanel.add(new BottomPanel(), BorderLayout.SOUTH);
-        mainPanel.add(new GraphPanel());
+        mainPanel = new MainPanel();
         this.setLayout(new BorderLayout(10, 0));
         this.add(mainPanel);
         this.add(new SidePanel(), BorderLayout.EAST);
