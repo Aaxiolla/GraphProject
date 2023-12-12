@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 
 public class BottomPanel extends JPanel {
     ButtonGroup tools;
-    JRadioButton addNode, addEdge, removeNode, removeEdge;
+    JRadioButton addNode, addEdge, removeNode, removeEdge, addDirectedEdge;
     MainPanel main;
     BottomPanel(MainPanel mainPanel){
         //Create the panel
@@ -24,6 +24,8 @@ public class BottomPanel extends JPanel {
         addNode.addActionListener((ActionEvent e) -> main.graphP.setTool(GraphTool.ADDNODE));
         addEdge = new JRadioButton("Add an edge");
         addEdge.addActionListener((ActionEvent e) -> main.graphP.setTool(GraphTool.ADDEDGE));
+        addDirectedEdge = new JRadioButton("Add a directed edge");
+        addDirectedEdge.addActionListener((ActionEvent e) -> main.graphP.setTool(GraphTool.ADDDIRECTEDEDGE));
         removeNode = new JRadioButton("Remove a node");
         removeNode.addActionListener((ActionEvent e) -> main.graphP.setTool(GraphTool.REMOVENODE));
         removeEdge = new JRadioButton("Remove an edge");
@@ -31,10 +33,12 @@ public class BottomPanel extends JPanel {
         //Adds buttons
         tools.add(addNode);
         tools.add(addEdge);
+        tools.add(addDirectedEdge);
         tools.add(removeNode);
         tools.add(removeEdge);
         this.add(addNode);
         this.add(addEdge);
+        this.add(addDirectedEdge);
         this.add(removeNode);
         this.add(removeEdge);
     }
