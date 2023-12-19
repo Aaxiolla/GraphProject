@@ -1,9 +1,12 @@
+package GraphAnalysis;
+
 import java.util.ArrayList;
 public class Node {
     String name;
     ArrayList<Edge> outEdgesList;
     ArrayList<Edge> inEdgesList;
-    Node(String name){
+    public Node(String name){
         this.name = name;
     }
+    public Node(){}
 }

@@ -13,6 +13,6 @@ public class MainPanel extends JPanel {
         bottomP = new BottomPanel(this);
         this.setLayout(new BorderLayout());
         this.add(new BottomPanel(this), BorderLayout.SOUTH);
-        this.add(new GraphPanel());
+        this.add(graphP);
     }
 }

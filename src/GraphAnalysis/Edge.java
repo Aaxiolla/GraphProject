@@ -1,3 +1,5 @@
+package GraphAnalysis;
+
 public class Edge {
     double length;
     Node start;

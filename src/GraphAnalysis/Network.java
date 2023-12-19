@@ -1,3 +1,5 @@
+package GraphAnalysis;
+
 import java.util.ArrayList;
 public class Network {
     ArrayList<Node> nodes;
@@ -5,9 +7,7 @@ public class Network {
     Network(ArrayList<Node> pNodes){
         this.nodes = pNodes;
     }
-    public Node addNode(String name){
-        Node nNode = new Node(name);
-        nodes.add(nNode);
-        return nNode;
+    public void addNode(Node newNode){
+        nodes.add(newNode);
     }
 }

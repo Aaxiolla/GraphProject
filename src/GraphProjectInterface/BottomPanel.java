@@ -20,16 +20,16 @@ public class BottomPanel extends JPanel {
     private void addToolButtons(){
         tools = new ButtonGroup();
         //Creates buttons
-        addNode = new JRadioButton("Add a node");
-        addNode.addActionListener((ActionEvent e) -> main.graphP.setTool(GraphTool.ADDNODE));
+        addNode = new JRadioButton("Add a node", true);
+        addNode.addActionListener((ActionEvent e) -> main.graphP.setTool(new AddNode()));
         addEdge = new JRadioButton("Add an edge");
-        addEdge.addActionListener((ActionEvent e) -> main.graphP.setTool(GraphTool.ADDEDGE));
+        addEdge.addActionListener((ActionEvent e) -> main.graphP.setTool(new AddEdge()));
         addDirectedEdge = new JRadioButton("Add a directed edge");
-        addDirectedEdge.addActionListener((ActionEvent e) -> main.graphP.setTool(GraphTool.ADDDIRECTEDEDGE));
+        addDirectedEdge.addActionListener((ActionEvent e) -> main.graphP.setTool(new AddDirectedEdge()));
         removeNode = new JRadioButton("Remove a node");
-        removeNode.addActionListener((ActionEvent e) -> main.graphP.setTool(GraphTool.REMOVENODE));
+        removeNode.addActionListener((ActionEvent e) -> main.graphP.setTool(new RemoveNode()));
         removeEdge = new JRadioButton("Remove an edge");
-        removeEdge.addActionListener((ActionEvent e) -> main.graphP.setTool(GraphTool.REMOVEEDGE));
+        removeEdge.addActionListener((ActionEvent e) -> main.graphP.setTool( new RemoveEdge()));
         //Adds buttons
         tools.add(addNode);
         tools.add(addEdge);
