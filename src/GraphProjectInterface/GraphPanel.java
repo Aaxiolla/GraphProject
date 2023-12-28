@@ -3,7 +3,6 @@ package GraphProjectInterface;
 
 
 import javax.swing.*;
-import javax.swing.event.MouseInputListener;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -25,12 +24,18 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
     }
     public void setTool(GraphTool tool){
         myTool = tool;
-        nearestNode = null;
-        nearestEdge =  null;
+        setNearestNode(null);
+        setNearestEdge(null);
     }
     void setNearestNode(VisualNode node){
         if(node != nearestNode){
             nearestNode = node;
+            repaint();
+        }
+    }
+    void setNearestEdge(VisualEdge edge){
+        if(edge != nearestEdge){
+            nearestEdge = edge;
             repaint();
         }
     }
@@ -49,7 +54,23 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
         if(nearestNode != null){
             g2d.setPaint(Color.YELLOW);
             g2d.fillOval(nearestNode.x, nearestNode.y, 10, 10);
-            System.out.println("Painted yellow node");
+        }
+        if(nearestEdge != null){
+            g2d.setPaint(Color.YELLOW);
+            g2d.drawLine(nearestEdge.startx, nearestEdge.starty, nearestEdge.endx, nearestEdge.endy);
+        }
+
+        for (VisualEdge edge : visualGraph.edges){
+            g2d.setPaint(Color.LIGHT_GRAY);
+            g2d.fillRect(edge.textx - 3, edge.texty - 10, 40, 12);
+            g2d.setPaint(Color.BLACK);
+            g2d.drawString(Double.toString(edge.edge.length), edge.textx, edge.texty);
+        }
+        for (VisualNode node : visualGraph.nodes){
+            g2d.setPaint(Color.LIGHT_GRAY);
+            g2d.fillRect(node.x, node.y - 15, 15, 12);
+            g2d.setPaint(Color.YELLOW);
+            g2d.drawString(node.name, node.x, node.y - 5);
         }
     }
 

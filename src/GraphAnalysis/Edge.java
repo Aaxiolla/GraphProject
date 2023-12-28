@@ -1,7 +1,7 @@
 package GraphAnalysis;
 
 public class Edge {
-    double length;
+    public double length;
     Node start;
     Node end;
     boolean biDirectional;
@@ -12,7 +12,7 @@ public class Edge {
         this.length = length;
     }
     //Creates either one or two edge objects to represent a mono or bidirectional edge
-    static void newEdge(boolean pbiDirectional, Node pstart, Node pend, double plength){
+    public static Edge newEdge(boolean pbiDirectional, Node pstart, Node pend, double plength){
         //Creates one way edge and adds it to the arrays of connected edges in its connected nodes
         Edge startToEnd = new Edge(pstart, pend, plength);
         pstart.outEdgesList.add(startToEnd);
@@ -28,5 +28,14 @@ public class Edge {
             endToStart.pairing = startToEnd;
             startToEnd.pairing = endToStart;
         }
+        return startToEnd;
+    }
+    public void delete(){
+        pairing.pairing = null;
+        pairing.start.outEdgesList.remove(pairing);
+        pairing.end.inEdgesList.remove(pairing);
+        pairing = null;
+        start.outEdgesList.remove(this);
+        end.inEdgesList.remove(this);
     }
 }

@@ -8,5 +8,8 @@ public class Node {
     public Node(String name){
         this.name = name;
     }
-    public Node(){}
+    public Node(){
+        outEdgesList = new ArrayList<>();
+        inEdgesList = new ArrayList<>();
+    }
 }

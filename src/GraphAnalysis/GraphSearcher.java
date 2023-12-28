@@ -12,8 +12,8 @@ public class GraphSearcher {
     GraphSearcher(Network network){
         this.network = network;
     }
-    /*
-    void findShortestDistances(){
+
+    HashMap<Node, HashMap<Node, Path>> findShortestDistances(){
         visitedNodes = new HashMap<>();
         for(Node n : network.nodes){
             for(Node m : network.nodes){
@@ -29,6 +29,7 @@ public class GraphSearcher {
             }
             tableDistances.put(n, new HashMap<Node, Path>(thisNodePaths));
         }
+        return tableDistances;
     }
 
     void traverse(Path currentPath){
@@ -53,7 +54,7 @@ public class GraphSearcher {
         }
     }
 
-    */
+
 
     Path findTour(){
         //Creates an empty list for paths to visit
