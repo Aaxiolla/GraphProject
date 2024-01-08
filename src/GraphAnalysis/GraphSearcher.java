@@ -5,15 +5,15 @@ import java.util.LinkedList;
 import java.util.ListIterator;
 
 public class GraphSearcher {
-    Network network;
+    public Network network;
     HashMap<Node, HashMap<Node, Path>> tableDistances = new HashMap<>();
     LinkedList<Path> unexploredPaths;
     HashMap<Node, Boolean> visitedNodes;
-    GraphSearcher(Network network){
+    public GraphSearcher(Network network){
         this.network = network;
     }
 
-    HashMap<Node, HashMap<Node, Path>> findShortestDistances(){
+    public HashMap<Node, HashMap<Node, Path>> findShortestDistances(){
         visitedNodes = new HashMap<>();
         for(Node n : network.nodes){
             for(Node m : network.nodes){

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Path {
     ArrayList<Edge> edges;
     ArrayList<Node> nodes;
-    double length;
+    public double length;
     Node start;
     Node end;
     Path(Node newNode){

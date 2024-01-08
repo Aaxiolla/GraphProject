@@ -12,7 +12,7 @@ public class BottomPanel extends JPanel {
     BottomPanel(MainPanel mainPanel){
         //Create the panel
         this.setBackground(Color.GRAY);
-        this.setPreferredSize(new Dimension(200,400));
+        this.setPreferredSize(new Dimension(200,200));
         this.setLayout(new FlowLayout(FlowLayout.LEFT));
         main = mainPanel;
         addToolButtons();

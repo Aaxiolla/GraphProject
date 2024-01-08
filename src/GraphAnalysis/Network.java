@@ -2,7 +2,7 @@ package GraphAnalysis;
 
 import java.util.ArrayList;
 public class Network {
-    ArrayList<Node> nodes;
+    public ArrayList<Node> nodes;
     public Network(){nodes = new ArrayList<Node>();}
     Network(ArrayList<Node> pNodes){
         this.nodes = pNodes;
