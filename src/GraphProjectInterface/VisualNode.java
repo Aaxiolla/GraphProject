@@ -14,9 +14,9 @@ public class VisualNode {
     VisualNode(int xposition,int yposition){
         x = xposition;
         y = yposition;
-        node = new Node();
         edges = new ArrayList<>();
         name = nameNode();
+        node = new Node(name);
     }
     public void addEdge(VisualEdge edge){
         edges.add(edge);
@@ -27,7 +27,6 @@ public class VisualNode {
             name += Math.floorDiv(namesCounter, 26);
         }
         namesCounter++;
-        System.out.println(name);
         return name;
     }
 }

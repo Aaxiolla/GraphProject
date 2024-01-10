@@ -34,4 +34,19 @@ public class Path {
         start = cPath.start;
         end = newPath.end;
     }
+    public void add(Path newPath){
+        edges.addAll(newPath.edges);
+        nodes.removeLast();
+        nodes.addAll(newPath.nodes);
+        length += newPath.length;
+        end = newPath.end;
+    }
+    public String toString(){
+        String name = "";
+        for (Node node: nodes) {
+            name += node.name + ", ";
+        }
+        name += "lenght: " + length;
+        return name;
+    }
 }

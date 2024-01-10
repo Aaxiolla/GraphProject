@@ -60,9 +60,8 @@ public class SidePanel extends JPanel {
         leastDistances.setPreferredSize(new Dimension(400, 200));
         scrollPane = new JScrollPane(leastDistances);
         scrollPane.setPreferredSize(new Dimension(450, 200));
-        System.out.println(scrollPane.getSize());
         this.add(scrollPane);
-
         revalidate();
+        graphSearcher.antColonyOptimise();
     }
 }

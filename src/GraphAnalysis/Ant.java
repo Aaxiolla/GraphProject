@@ -14,12 +14,25 @@ public class Ant {
         unvisitedNodes = new ArrayList<>(graphSearcher.network.nodes);
         unvisitedNodes.remove(startNode);
         path = new Path(startNode);
-        visitedNodes = new ArrayList<>(visitedNodes.size() + 1);
+        visitedNodes = new ArrayList<>();
+        visitedNodes.add(startNode);
     }
 
-    void Tour(){
-        for (Node currentNode : unvisitedNodes) {
-
+    void tour(){
+        Node currentNode = startNode;
+        while (!unvisitedNodes.isEmpty()){
+            Node nextNode = searcher.chooseAntPath(currentNode, unvisitedNodes);
+            Path newPath = searcher.tableDistances.get(currentNode).get(nextNode);
+            path.add(newPath);
+            for (Node traversedNode : newPath.nodes) {
+                if (unvisitedNodes.contains(traversedNode)) {
+                    unvisitedNodes.remove(traversedNode);
+                    visitedNodes.add(traversedNode);
+                }
+            }
+            currentNode = nextNode;
         }
+        path.add(searcher.tableDistances.get(currentNode).get(startNode));
+
     }
 }

@@ -42,7 +42,6 @@ class AddEdge implements GraphTool{
             //Asks for the length and creates a new edge in the network
             double edgeLength = Double.parseDouble(JOptionPane.showInputDialog(panel, "Please input the length", "Input Length", JOptionPane.PLAIN_MESSAGE));
             newEdge.edge = Edge.newEdge(biDirectional,selectedNode.node, nearest.node, edgeLength);
-            System.out.println("Edge created with length " + edgeLength);
             panel.visualGraph.addEdge(newEdge);
             selectedNode = null;
         }

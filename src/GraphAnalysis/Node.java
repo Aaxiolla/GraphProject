@@ -7,6 +7,8 @@ public class Node {
     ArrayList<Edge> inEdgesList;
     public Node(String name){
         this.name = name;
+        outEdgesList = new ArrayList<>();
+        inEdgesList = new ArrayList<>();
     }
     public Node(){
         outEdgesList = new ArrayList<>();
