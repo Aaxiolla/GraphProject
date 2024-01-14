@@ -1,13 +1,11 @@
 package GraphAnalysis;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.ListIterator;
+import java.util.*;
 
 class findShortestPaths{
 
     HashMap<Node, HashMap<Node, Path>> leastDistances = new HashMap<>();
-    HashMap<Node, Boolean> visitedNodes;
+    ArrayList<Node> visitedNodes;
     LinkedList<Path> unexploredPaths;
     Network network;
     GraphSearcher caller;
@@ -17,11 +15,8 @@ class findShortestPaths{
         network = caller.network;
     }
     HashMap<Node, HashMap<Node, Path>> findShortestDistances(){
-        visitedNodes = new HashMap<>();
         for(Node n : network.nodes){
-            for(Node m : network.nodes){
-                visitedNodes.put(m, Boolean.FALSE);
-            }
+            visitedNodes = new ArrayList<Node>();
             HashMap<Node, Path> thisNodePaths = new HashMap<>();
             unexploredPaths = new LinkedList<>();
             traverse(new Path(n));
@@ -38,12 +33,12 @@ class findShortestPaths{
     void traverse(Path currentPath){
         //Adds new paths to list
         for(Edge cEdge : currentPath.end.outEdgesList){
-            if(!visitedNodes.get(cEdge.end)){
+            if(!visitedNodes.contains(cEdge.end)){
                 insertPath(new Path(currentPath, cEdge));
             }
         }
         //Marks the node as visited and removes paths that lead to it
-        visitedNodes.put(currentPath.end, Boolean.TRUE);
+        visitedNodes.add(currentPath.end);
         unexploredPaths.removeIf(p -> p.end == currentPath.end);
     }
     void insertPath(Path addedPath){

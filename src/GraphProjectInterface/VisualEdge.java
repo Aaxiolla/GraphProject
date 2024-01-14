@@ -13,6 +13,8 @@ public class VisualEdge {
         biDirectional = pBiDirectional;
         start = startNode;
         end = endNode;
+        start.addEdge(this);
+        end.addEdge(this);
         startx = start.x + 5;
         starty = start.y + 5;
         endx = end.x + 5;

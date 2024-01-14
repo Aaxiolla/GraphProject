@@ -9,7 +9,7 @@ public class GraphSearcher {
     HashMap<Node, HashMap<Node, Path>> tableDistances = new HashMap<>();
     HashMap<Node, HashMap<Node, Double>> phermoneStrenght;
     Random antGod = new Random();
-    Path pathFound;
+    public Path pathFound;
 
     public GraphSearcher(Network network){
         this.network = network;

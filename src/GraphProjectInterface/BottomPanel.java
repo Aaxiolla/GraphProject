@@ -51,7 +51,7 @@ public class BottomPanel extends JPanel {
         tools.add(removeEdge);
         this.add(addNode);
         this.add(addEdge);
-        this.add(addDirectedEdge);
+        //this.add(addDirectedEdge);
         this.add(removeNode);
         this.add(removeEdge);
         this.add(resetGraph);
