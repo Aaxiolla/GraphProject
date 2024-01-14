@@ -23,7 +23,7 @@ public class GraphSearcher {
             }
             phermoneStrenght.put(currentNode1, fromThisNode);
         }
-        int max = Math.min(450,(int) Math.pow( network.nodes.size(), 3));
+        int max = Math.min(1000,(int) Math.pow( network.nodes.size(), 4));
         for(int count = 0;count < max; count++){
             iterateAnts();
         }
